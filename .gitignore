@@ -51,7 +51,8 @@ MANIFEST
 
 # Per-project virtualenvs
 .venv*/
-
+env*/
+audio_subset/
 .vscode
 
 # Notebook

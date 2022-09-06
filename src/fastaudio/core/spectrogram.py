@@ -64,8 +64,6 @@ class AudioSpectrogram(TensorImageBase):
         return "%+2.0f dB" if "to_db" in self._settings and self.to_db else "%+2.0f"
 
     def __getattr__(self, name):
-        if name == "_settings":
-            return self._settings
         if name == "settings":
             return self._settings
         if not name.startswith("_"):

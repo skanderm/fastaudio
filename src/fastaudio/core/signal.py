@@ -12,7 +12,7 @@ from fastcore.dispatch import typedispatch
 from fastcore.meta import delegates
 from fastcore.utils import ifnone
 from IPython.display import Audio, display
-from librosa.display import waveplot
+from librosa.display import waveshow
 from os import path
 
 audio_extensions = tuple(
@@ -152,7 +152,7 @@ def show_audio_signal(ai, ctx, ax=None, title="", **kwargs):
     for i, channel in enumerate(ai):
         # x_start, y_start, x_lenght, y_lenght, all in percent
         ia = ax.inset_axes((i / ai.nchannels, 0.2, 1 / ai.nchannels, 0.7))
-        waveplot(channel.cpu().numpy(), ai.sr, ax=ia, **kwargs)
+        waveshow(channel.cpu().numpy(), sr=ai.sr, ax=ia, **kwargs)
         ia.set_title(f"Channel {i}")
     ax.set_title(title)
 
